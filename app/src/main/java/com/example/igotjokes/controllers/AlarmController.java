@@ -53,6 +53,6 @@ public class AlarmController {
         PendingIntent pi=PendingIntent.getBroadcast(m_Context, 0,i, PendingIntent.FLAG_UPDATE_CURRENT);
         alarmManager.cancel(pi);
 
-        
+
     }
 }

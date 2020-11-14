@@ -4,7 +4,6 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,11 +11,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Splash"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <receiver android:name="AlarmReceiver"  android:enabled="true"/>
-        <activity android:name=".JokesType"
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+        <activity android:name=".SignUp">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.igotjokes.Dashboard" />
+        </activity>
+
+        <receiver
+            android:name=".AlarmReceiver"
+            android:enabled="true" />
+
+        <activity
+            android:name=".JokesType"
             android:label="Filtered Jokes">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.igotjokes.Dashboard" />
@@ -32,11 +48,7 @@
         <activity
             android:name=".Login"
             android:theme="@style/Theme.AppCompat.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
     </application>

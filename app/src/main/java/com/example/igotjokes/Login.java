@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -25,6 +26,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     private Button login;
     private Button sign;
     private ProgressBar progressBar;
+    private EditText email,password;
+
 
     private FirebaseAuth mAuth;
 
@@ -46,12 +49,14 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         setContentView(R.layout.activity_login);
         login= findViewById(R.id.loginBtn);
         sign= findViewById(R.id.signBtn);
+        email=findViewById(R.id.email_et);
+        password=findViewById(R.id.password_et);
+
+
+
+
         progressBar=findViewById(R.id.progressBar3);
         progressBar.setVisibility(ProgressBar.GONE);
-
-
-
-
 
 
         sign.setOnClickListener(this);
@@ -86,31 +91,25 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
     private void signUp() {
 
-        mAuth.createUserWithEmailAndPassword("kalo@gmail.com", "password")
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d("TAG", "createUserWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
 
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w("TAG", "createUserWithEmail:failure", task.getException());
+        Intent intent = new Intent(getApplicationContext(), SignUp.class);
 
-                        }
-
-                    }
-                });
+        startActivity(intent);
 
 
     }
 
     public void login(){
-        progressBar.setVisibility(ProgressBar.VISIBLE);
 
-        mAuth.signInWithEmailAndPassword("kalo@gmail.com", "password")
+        String name=email.getText().toString();
+        String pass= password.getText().toString();
+
+
+        if(name.isEmpty() || pass.isEmpty())
+            return;
+
+        progressBar.setVisibility(ProgressBar.VISIBLE);
+        mAuth.signInWithEmailAndPassword(name,pass)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -128,6 +127,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("TAG", "signInWithEmail:failure", task.getException());
+                            Toast.makeText(getApplicationContext(), "Email or Password is incorrect",
+                                    Toast.LENGTH_LONG).show();
+
+                            progressBar.setVisibility(ProgressBar.GONE);
 
                         }
 

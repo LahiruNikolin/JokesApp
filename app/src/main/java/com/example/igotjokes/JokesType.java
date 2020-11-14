@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ProgressBar;
@@ -36,8 +37,10 @@ public class JokesType extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jokes_type);
 
-        String tag = getIntent().getStringExtra("TAG");
 
+
+        String tag = getIntent().getStringExtra("TAG");
+        this.setTitle("Jokes - "+tag.toUpperCase());
 
         ls=new JokeTypeListener(this);
         getJokes(tag);

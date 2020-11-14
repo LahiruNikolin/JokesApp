@@ -30,7 +30,7 @@ import org.json.JSONObject;
 
 public class Dashboard extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView tv;
+    private TextView tv,tv1;
     private TextView welcomeTv;
     private Button Morejokes;
     private ProgressBar progressBar;
@@ -49,6 +49,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
         setContentView(R.layout.activity_dashboard);
 
         tv=findViewById(R.id.daily_joke);
+        tv1=findViewById(R.id.joke_punch);
         progressBar=findViewById(R.id.progressBar2);
         Morejokes=findViewById(R.id.ten_jokesBtn);
         pType=(RadioButton)findViewById(R.id.rb_pro);
@@ -57,10 +58,11 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
         logout=findViewById(R.id.logout);
 
         welcomeTv=findViewById(R.id.welcome_tv);
+        gType.toggle();
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        welcomeTv.setText( user.getEmail());
+        welcomeTv.setText(  user.getEmail());
 
         btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -150,6 +152,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
         Log.d("JD",jk.getPunchline());
 
         tv.setText(jk.setup);
+        tv1.setText(jk.punchline);
         progressBar.setVisibility(ProgressBar.GONE);
 
     }

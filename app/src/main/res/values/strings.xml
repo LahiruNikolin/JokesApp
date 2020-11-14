@@ -3,4 +3,6 @@
     <string name="joke_title">Let\'s Read Some Jokes</string>
     <string name="login">Go!</string>
     <string name="sign_up">SIGN UP</string>
+    <string name="joke_sign">Let\'s Get Started!</string>
+    <string name="register">Register</string>
 </resources>

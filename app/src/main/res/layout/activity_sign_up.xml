@@ -21,9 +21,9 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:padding="10dp"
-            android:text="@string/joke_title"
+            android:text="@string/joke_sign"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="#fff"
@@ -32,8 +32,8 @@
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="200dp"
-            android:src="@drawable/hero" />
+            android:layout_height="170dp"
+            android:src="@drawable/pow" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -45,46 +45,46 @@
 
 
             <EditText
-                android:id="@+id/email_et"
+                android:id="@+id/email_sign_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Username"
+                android:hint="Email Address"
                 android:inputType="textPersonName"
+                android:textColor="#fff"
                 android:padding="20dp" />
 
             <EditText
-                android:id="@+id/password_et"
+                android:id="@+id/password_sign_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Password"
                 android:inputType="textPassword"
+                android:textColor="#fff"
+                android:padding="20dp" />
+
+            <EditText
+                android:id="@+id/con_password_sign_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Confirm Password"
+                android:inputType="textPassword"
+                android:textColor="#fff"
                 android:padding="20dp" />
 
 
 
             <Button
-                android:id="@+id/loginBtn"
+                android:id="@+id/register_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
                 android:layout_marginTop="30dp"
                 android:background="@color/loginBtn"
                 android:padding="20dp"
-                android:text="@string/login"
-                android:textColor="#fff"
-                android:textSize="17sp" />
-
-            <Button
-                android:id="@+id/signBtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/loginBtn"
-                android:padding="20dp"
-                android:text="@string/sign_up"
+                android:text="@string/register"
                 android:textColor="#fff"
                 android:textSize="17sp" />
 
@@ -94,7 +94,7 @@
     </LinearLayout>
 
     <ProgressBar
-        android:id="@+id/progressBar3"
+        android:id="@+id/progressBar4"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
